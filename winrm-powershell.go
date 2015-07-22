@@ -39,7 +39,8 @@ func main() {
 	flag.BoolVar(&debug, "debug", false, "output debugging info")
 	flag.Parse()
 
-	cmd = flag.Arg(0)
+	cmdB, _ := ioutil.ReadAll(os.Stdin)
+	cmd = string(cmdB)
 
 	if !debug {
 		log.SetOutput(ioutil.Discard)
